@@ -1,16 +1,83 @@
-# React + Vite
+**The Flying Panda – Visa Alerts Tracker**
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A mini internal tool to track visa slot alerts, built as part of The Flying Panda Full-Stack Developer Intern assignment.
+Allows creating, viewing, updating, deleting, and filtering visa alerts for different countries and visa types.
 
-Currently, two official plugins are available:
+📦 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+    Backend (Node.js + Express)
+    REST API endpoints:
+    GET /api/alerts → Get all alerts or filtered by country/status
+    POST /api/alerts/addAlert → Add a new alert
+    PUT /api/alerts/updateStatus/:id → Update status of an alert
+    DELETE /api/alerts/deleteAlert/:id → Delete an alert
+    Custom middleware (logger + centralized error handling)
+    Query filtering (country and status)
+    Proper HTTP status codes for success & error
+    Data stored in MongoDB
+    Environment variables used for API URL & port
+    Frontend (React + Bootstrap)
+    Form to create alerts
+    Display all alerts in cards
+    Update alert status directly from the card
+    Delete alerts (admin role)
+    Filter alerts by country and status
+    Reset filters
+    Context API (alertContext) to manage global state
+    Default browser alerts for success messages
 
-## React Compiler
+🛠️ Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+    Frontend: React.js, Bootstrap 5, Vite
+    Backend: Node.js, Express.js
+    Database: MongoDB (Atlas)
+    State Management: React Context API
+    Other: dotenv, express-validator, CORS
 
-## Expanding the ESLint configuration
+🚀 Setup Instructions
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+    Clone Repo
+
+    git clone https://github.com/your-username/theflyingpandaassignment.git
+    cd theflyingpandaassignment
+
+
+Backend Setup
+
+    cd Backend
+    npm install
+
+
+Create .env file with:
+
+    PORT=4000
+    MONGO_URI=<your-mongo-db-connection-string>
+
+
+Start backend server:
+
+    nodemon index.js
+
+
+Frontend Setup
+
+    cd ../
+    npm install
+    npm run dev
+
+
+Make sure VITE_APP_API_URL=http://localhost:4000/api/alerts is set in .env
+
+Open browser → http://localhost:5173
+
+🎨 Design Decisions
+
+    Used React Context for global state → all components get updated automatically on CRUD operations.
+
+    Bootstrap cards for alerts → clean and responsive UI.
+
+    Placed filter in navbar for better UX.
+
+    API filtering implemented on the backend → efficient and scalable.
+
+    Used default browser alerts for simplicity.
