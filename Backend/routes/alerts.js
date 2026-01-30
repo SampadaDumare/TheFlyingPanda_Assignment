@@ -77,4 +77,23 @@ router.put('/updateStatus/:id', async (req, res)=>{
     }
 })
 
+// for filtering
+router.get('/', async(req, res) =>{
+    try {
+        const {country, status} = req.query;
+        let filter = {};
+        if(country){
+            filter.country = country;
+        }
+        if(status){
+            filter.status = status;
+        }
+        let alert = await Alert.find(filter);
+        res.json(alert);
+    } catch (error) {
+        console.error(error.message);
+        return res.status(500).send("Internal server error");
+    }
+})
+
 module.exports = router
