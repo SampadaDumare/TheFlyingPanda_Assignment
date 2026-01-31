@@ -55,7 +55,7 @@ const AddAlert = () => {
                 <button type="submit" className="btn btn-primary">Submit</button>
             </form>
             <div className=" row my-3">
-                <h3>All Alets</h3>
+                <h3>All Alerts</h3>
                 {alert.length === 0 && <p>No alerts added yet</p>}
                 {Array.isArray(alert) && alert.map((alerts) => {
                     return <Alertitem key={alerts._id} alerts={alerts} />
