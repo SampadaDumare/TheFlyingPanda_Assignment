@@ -3,6 +3,12 @@
 A mini internal tool to track visa slot alerts, built as part of The Flying Panda Full-Stack Developer Intern assignment.
 Allows creating, viewing, updating, deleting, and filtering visa alerts for different countries and visa types.
 
+
+🚀 **Live Demo**
+
+- **Frontend (React App):** https://theflyingpanda-assignment.netlify.app/
+- **Backend API (Node.js/Express):** https://theflyingpanda-assignment-backend.onrender.com
+
 📦 Features
 
     Backend (Node.js + Express)
